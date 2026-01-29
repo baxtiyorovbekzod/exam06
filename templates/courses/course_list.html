@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Kurslar{% endblock %}
+
+{% block content %}
+<h2>Kurslar ro‘yxati</h2>
+<a class="btn" href="{% url 'course_create' %}">+ Yangi kurs</a>
+
+<table>
+<tr>
+    <th>Nomi</th>
+    <th>Davomiyligi</th>
+    <th>Amallar</th>
+</tr>
+{% for course in courses %}
+<tr>
+    <td>{{ course.title }}</td>
+    <td>{{ course.duration_weeks }} hafta</td>
+    <td>
+        <a href="{% url 'course_detail' course.pk %}">Detail</a> |
+        <a href="{% url 'course_edit' course.pk %}">Edit</a>
+        <form method="post" action="{% url 'course_delete' course.pk %}" class="inline">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+    </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

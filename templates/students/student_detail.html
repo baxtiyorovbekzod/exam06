@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ student.full_name }}</h2>
+<p>{{ student.email }} | {{ student.age }} yosh</p>
+
+<h3>Kurslari</h3>
+<ul>
+{% for e in enrollments %}
+    <li>{{ e.course.title }}</li>
+{% empty %}
+    <li>Kursga yozilmagan</li>
+{% endfor %}
+</ul>
+{% endblock %}

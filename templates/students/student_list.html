@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Studentlar{% endblock %}
+
+{% block content %}
+<h2>Studentlar</h2>
+
+<form method="get" class="filter-form">
+    <input type="text" name="search" placeholder="Qidirish" value="{{ search }}">
+    <input type="number" name="min_age" placeholder="Min age" value="{{ min_age }}">
+    <button type="submit">Filter</button>
+</form>
+
+<a class="btn" href="{% url 'student_create' %}">+ Yangi student</a>
+
+<table>
+<tr>
+    <th>Ism</th>
+    <th>Email</th>
+    <th>Yosh</th>
+    <th>Amallar</th>
+</tr>
+{% for s in students %}
+<tr>
+    <td>{{ s.full_name }}</td>
+    <td>{{ s.email }}</td>
+    <td>{{ s.age }}</td>
+    <td>
+        <a href="{% url 'student_detail' s.pk %}">Detail</a> |
+        <a href="{% url 'student_edit' s.pk %}">Edit</a>
+        <form method="post" action="{% url 'student_delete' s.pk %}" class="inline">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+    </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

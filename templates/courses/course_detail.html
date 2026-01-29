@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}{{ course.title }}{% endblock %}
+
+{% block content %}
+<h2>{{ course.title }}</h2>
+<p><b>Davomiyligi:</b> {{ course.duration_weeks }} hafta</p>
+<p>{{ course.description }}</p>
+
+<h3>Yozilgan studentlar</h3>
+<ul>
+{% for e in enrollments %}
+    <li>{{ e.student.full_name }}</li>
+{% empty %}
+    <li>Hali student yo‘q</li>
+{% endfor %}
+</ul>
+{% endblock %}

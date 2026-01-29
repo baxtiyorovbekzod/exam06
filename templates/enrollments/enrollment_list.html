@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Enrollments</h2>
+<a class="btn" href="{% url 'enrollment_create' %}">+ Yozish</a>
+
+<table>
+<tr>
+    <th>Student</th>
+    <th>Kurs</th>
+    <th>Amallar</th>
+</tr>
+{% for e in enrollments %}
+<tr>
+    <td>{{ e.student.full_name }}</td>
+    <td>{{ e.course.title }}</td>
+    <td>
+        <form method="post" action="{% url 'enrollment_delete' e.pk %}">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+    </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
