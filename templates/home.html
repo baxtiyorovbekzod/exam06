@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Bosh sahifa{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <h2>👋 Xush kelibsiz Student Course Management System!</h2>
+    <p>Bu yerda kurslar, studentlar va enrollments haqida ma’lumotlarni ko‘rishingiz mumkin.</p>
+
+    <div class="stats-cards">
+        <div class="card">
+            <h3>Total Courses</h3>
+            <p>{{ total_courses }}</p>
+        </div>
+        <div class="card">
+            <h3>Total Students</h3>
+            <p>{{ total_students }}</p>
+        </div>
+        <div class="card">
+            <h3>Total Enrollments</h3>
+            <p>{{ total_enrollments }}</p>
+        </div>
+    </div>
+
+    <div class="quick-links">
+        <a class="btn" href="{% url 'course_list' %}">Barcha Kurslar</a>
+        <a class="btn" href="{% url 'student_list' %}">Barcha Studentlar</a>
+        <a class="btn" href="{% url 'enrollment_list' %}">Barcha Enrollments</a>
+    </div>
+</div>
+{% endblock %}

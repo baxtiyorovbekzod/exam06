@@ -1,23 +1,31 @@
+/* ===== Body va Header ===== */
 body {
     font-family: Arial, sans-serif;
-    margin: 30px;
+    margin: 0;
+    padding: 0;
     background: #f9f9f9;
     color: #111;
 }
 
 header {
-    margin-bottom: 20px;
+    background-color: #2563eb;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 header h1 {
-    font-size: 26px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin: 0;
 }
 
 nav a {
     margin-right: 15px;
     text-decoration: none;
-    color: #2563eb;
+    color: white;
     font-weight: bold;
 }
 
@@ -25,45 +33,15 @@ nav a:hover {
     text-decoration: underline;
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 10px;
-    background: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+/* ===== Main ===== */
+main {
+    padding: 30px;
 }
 
-th,
-td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background: #2563eb;
-    color: white;
-}
-
-.btn,
-button {
-    padding: 6px 12px;
-    background: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.btn:hover,
-button:hover {
-    background: #1d4ed8;
-}
-
+/* ===== Alertlar ===== */
 .alert {
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border-radius: 5px;
 }
 
@@ -77,15 +55,84 @@ button:hover {
     color: #b91c1c;
 }
 
-.inline {
-    display: inline;
+/* ===== Buttons ===== */
+.btn,
+button {
+    padding: 8px 16px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px 0;
 }
 
-.filter-form input {
-    padding: 5px;
-    margin-right: 5px;
+.btn:hover,
+button:hover {
+    background: #1d4ed8;
 }
 
-.filter-form button {
-    padding: 5px 10px;
+/* ===== Cards container ===== */
+.stats-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.stats-cards .card {
+    flex: 1;
+    min-width: 200px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stats-cards .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.stats-cards .card h3 {
+    font-size: 18px;
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+.stats-cards .card p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111;
+}
+
+/* ===== Quick links ===== */
+.quick-links {
+    margin-top: 20px;
+}
+
+.quick-links .btn {
+    margin-right: 15px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .stats-cards {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .quick-links .btn {
+        margin-bottom: 10px;
+    }
 }
